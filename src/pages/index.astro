@@ -1,3 +1,4 @@
+
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
@@ -8,7 +9,7 @@ const monthsPassed = new Date().getFullYear() * 12 + new Date().getMonth() - (20
 
 ---
 <DefaultLayout title="Tutoring">
-  
+
   <Hero />
   <section class="my-64">
     <div class="container">
@@ -18,7 +19,7 @@ const monthsPassed = new Date().getFullYear() * 12 + new Date().getMonth() - (20
           <a href=/primary-school style="text-decoration:none"><h3>Primary School</h3></a>
          Use the power of Tailwind to greatly improve your productivity and enhance your developer workflow.
         </Feature>
- 
+
         <Feature icon="mdi:looks" title="">
           <a href=/college style="text-decoration:none"><h3>Secondary School</h3></a>
           Less worry about formatting your code, let the Astro Prettier integration do the heavy lifting.
@@ -60,7 +61,7 @@ const monthsPassed = new Date().getFullYear() * 12 + new Date().getMonth() - (20
           The theme offers some very handy utilities to help you build your website faster.
         </Feature>
         <Feature icon="mdi:lighthouse" title="Everything Else">
-          <a href=#contact>Contact us</a> in order to inquire about anything else you are curious about! 
+          <a href="#contact">Contact us</a> in order to inquire about anything else you are curious about!
         </Feature>
       </div>
     </div>
@@ -84,7 +85,7 @@ const monthsPassed = new Date().getFullYear() * 12 + new Date().getMonth() - (20
   </ContentMedia>
   <section class="mb-32 mt-64">
     <div class="container">
-      
+
       <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
         <Counter count="2" title="Tutors" sub="" />
         <Counter count="50+" title="Courses" sub="covered" />
@@ -94,5 +95,59 @@ const monthsPassed = new Date().getFullYear() * 12 + new Date().getMonth() - (20
     </div>
   </section>
   <h1 id="contact"> </h1>
+  <section class="contact-form-container">
+    <h1>Contact Us</h1>
+    <form action="/submit" method="POST" class="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
 </DefaultLayout>
 
+<style>
+  .contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-form label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .contact-form button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .contact-form button:hover {
+    background-color: #0056b3;
+  }
+</style>
